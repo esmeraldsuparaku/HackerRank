@@ -1,0 +1,36 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'missingCharacters' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def missingCharacters(s):
+    # Write your code here
+    missingChar = ''
+    for i in range(0,len(chars)-1):
+        if(ord(chars[i+1]) - ord(chars[i]) > 1):
+            missingChar = chr(ord(chars[i])+1)
+
+    return missingChar
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = missingCharacters(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
